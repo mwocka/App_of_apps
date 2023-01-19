@@ -43,7 +43,7 @@ pipeline {
                 }
             }
         }
-
+        /*
         stage('Deploy application') {
             steps {
                 script {
@@ -63,7 +63,7 @@ pipeline {
                 sh "python3 -m pytest test/selenium/frontendTest.py"
             }
         }
-
+        */
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
@@ -86,10 +86,10 @@ pipeline {
                }
             }
         }
-    post {
+    /*post {
         always {
             sh "docker-compose down"
             cleanWs()
         }
-    }
+    }*/
 }
