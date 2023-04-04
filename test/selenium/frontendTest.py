@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 from os import environ
 from selenium.webdriver.common.by import By
 
-application_URL = environ.get('APPLICATION_URL', 'http://host.docker.internal:5000/')
+application_URL = environ.get('APPLICATION_URL', 'http://host.docker.internal:6000/')
 selenium_URL = environ.get('SELENIUM_URL', 'http://host.docker.internal:4444/wd/hub')
 
 
