@@ -43,14 +43,14 @@ pipeline {
                 }
             }
         }
-        /*
+        
         stage('Deploy application') {
             steps {
                 script {
                     withEnv(["FRONTEND_IMAGE=$frontendImage:$frontendDockerTag", 
                              "BACKEND_IMAGE=$backendImage:$backendDockerTag"]) {
                        docker.withRegistry("$dockerRegistry", "$registryCredentials") {
-                            sh "docker-compose up -d"
+                            sh "docker compose up -d"
                         }
                     }
                 }
@@ -63,7 +63,7 @@ pipeline {
                 sh "python3 -m pytest test/selenium/frontendTest.py"
             }
         }
-        */
+        
         stage('Run terraform') {
             steps {
                 dir('Terraform') {                
@@ -86,10 +86,10 @@ pipeline {
                }
             }
         }
-    /*post {
+    post {
         always {
-            sh "docker-compose down"
+            sh "docker compose down"
             cleanWs()
         }
-    }*/
+    }
 }
